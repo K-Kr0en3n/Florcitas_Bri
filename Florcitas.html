@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Para Brigthany 🌻</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700&display=swap">
+<style>
+:root{--bg1:#fff3b8;--bg2:#ffc9de;--ink:#7a1f4d;--card:rgba(255,255,255,.65);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#2a1b45;--bg2:#5a2358;--ink:#ffe27a;--card:rgba(0,0,0,.3)}}
+:root[data-theme="dark"]{--bg1:#2a1b45;--bg2:#5a2358;--ink:#ffe27a;--card:rgba(0,0,0,.3)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow-x:hidden;background:linear-gradient(160deg,var(--bg1),var(--bg2)) fixed;color:var(--ink);font-family:'Nunito',system-ui,sans-serif;text-align:center}
+main{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;padding:24px 16px 40px}
+h1{font-family:'Pacifico',cursive,serif;font-weight:400;font-size:clamp(2.6rem,11vw,4.8rem);margin:8px 0 0;line-height:1.1;text-shadow:0 3px 0 rgba(255,255,255,.5)}
+.fecha{margin:6px 0 0;font-weight:700;font-size:1.05rem}
+svg{width:min(92vw,420px);height:auto;cursor:pointer;overflow:visible;margin-top:8px}
+.msg{background:var(--card);backdrop-filter:blur(6px);border-radius:22px;padding:16px 24px;max-width:min(92vw,440px);font-size:1.15rem;font-weight:700;margin-top:8px}
+.p{position:fixed;top:-30px;z-index:0;pointer-events:none;border-radius:80% 0 80% 0;width:var(--s);height:calc(var(--s)*1.5);animation:fall var(--d) linear forwards}
+@keyframes fall{to{transform:translate(50px,112vh) rotate(600deg)}}
+.bq{transform-origin:200px 400px;animation:sway 5s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-1.6deg)}to{transform:rotate(1.6deg)}}
+.bl{transform-box:fill-box;transform-origin:center;animation:bloom .9s cubic-bezier(.2,1.5,.4,1) both}
+@keyframes bloom{from{transform:scale(0) rotate(-90deg)}}
+.tw{animation:tw 2s ease-in-out infinite alternate}
+@keyframes tw{from{opacity:.15}to{opacity:1}}
+body.is-paused .bq,
+body.is-paused .bl,
+body.is-paused .tw,
+body.is-paused .p{animation-play-state:paused !important}
+.ov{position:fixed;inset:0;z-index:10;display:flex;align-items:center;justify-content:center;padding:16px;background:rgba(60,10,40,.55);backdrop-filter:blur(4px)}
+.ov[hidden]{display:none}
+.pop{position:relative;width:min(92vw,360px);max-height:92vh;overflow-y:auto;background:#fffbe6;color:#7a1f4d;border:4px solid #ffc3dd;border-radius:26px;padding:20px 20px 22px;box-shadow:0 12px 40px rgba(0,0,0,.35);animation:bloom .6s cubic-bezier(.2,1.4,.4,1) both}
+.pop .tenor-gif-embed{width:min(60%,190px);margin:0 auto 8px}
+.pop p{margin:0 0 14px;font-size:1rem;line-height:1.5;font-weight:700}
+.pop button{font:inherit;font-weight:700;border:0;border-radius:999px;padding:10px 22px;background:#ff5fa2;color:#fff;cursor:pointer}
+.pop button:focus-visible{outline:3px solid #ffb703;outline-offset:2px}
+.pop .x{position:absolute;top:8px;right:10px;width:34px;height:34px;padding:0;font-size:1.3rem;line-height:1;background:transparent;color:#7a1f4d}
+@media (prefers-reduced-motion:reduce){.bq,.tw{animation:none}.p{display:none}}
+</style>
+</head>
+<body>
+<div class="ov" id="ov" role="dialog" aria-modal="true" aria-label="Mensaje para Brigthany">
+  <div class="pop">
+    <button class="x" id="x" aria-label="Cerrar">✕</button>
+    <div class="tenor-gif-embed" data-postid="14327500281095839095" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/my-little-pony-mlp-my-little-pony-friendship-is-magic-starlight-glimmer-cute-gif-14327500281095839095">My Little Pony Mlp Sticker</a>from <a href="https://tenor.com/search/my+little+pony-stickers">My Little Pony Stickers</a></div>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    <p>Feliz inicio de primavera, Awela. Sé que últimamente he estado modo zombie, muy ausente y tapado de cosas, y de verdad te pido perdón por no darte el tiempo que te mereces. Pero quiero que sepas que, aunque ande con mas chamba que vida, tú sigues siendo mi etapa favorita del año uwu</p>
+    <button id="ok">Fuera fracasao</button>
+  </div>
+</div>
+<main>
+  <h1>Brigthany</h1>
+  <p class="fecha"></p>
+  <svg id="b" viewBox="0 0 400 500" role="img" aria-label="Ramo de flores amarillas"></svg>
+  <p class="msg">Gracias por tu increíble amistad 💛</p>
+</main>
+<script>
+const NS='http://www.w3.org/2000/svg';
+const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+const svg=document.getElementById('b');
+const defs=el('defs',{},svg);
+const g1=el('linearGradient',{id:'pp',x1:0,y1:0,x2:1,y2:1},defs);
+el('stop',{offset:0,'stop-color':'#ff5fa2'},g1);el('stop',{offset:1,'stop-color':'#a44bd6'},g1);
+const bq=el('g',{class:'bq'},svg);
+const stems=el('g',{},bq),heads=el('g',{},bq);
+
+// [x, y, radio, pétalos, color, centro]
+const F=[
+ [200,95,44,16,'#FFD400','#7b3f00'],[125,140,38,14,'#FFC300','#8a4b08'],[275,140,38,14,'#FFE24D','#7b3f00'],
+ [80,215,32,12,'#FFB703','#6d3600'],[320,215,32,12,'#FFD93B','#8a4b08'],[200,190,40,15,'#FFEA70','#9a5a10'],
+ [140,255,30,12,'#FFCB05','#7b3f00'],[262,255,30,12,'#FFC933','#6d3600'],[40,150,22,10,'#FFDD33','#8a4b08'],[362,150,22,10,'#FFC300','#7b3f00']
+];
+// florecitas de color (acentos)
+const S=[[165,55,10,'#ff7ab8'],[245,60,10,'#8f7bff'],[95,85,9,'#4fc3f7'],[310,90,9,'#ff8a3d'],[45,240,9,'#ff7ab8'],[355,245,9,'#8f7bff'],
+ [175,300,8,'#4fc3f7'],[230,300,8,'#ff8a3d'],[105,300,8,'#8f7bff'],[300,300,8,'#ff7ab8'],[200,25,8,'#ff8a3d']];
+let d=0;
+function stem(x,y){
+  const mx=200+(x-200)*.35,my=(400+y)/2;
+  el('path',{d:`M200 400 Q${mx} ${my} ${x} ${y}`,stroke:'#2e9e4f','stroke-width':4,fill:'none','stroke-linecap':'round'},stems);
+  const lx=(200+x)/2+(x-200)*.05,ly=(400+y)/2+20,a=x<200?-35:35;
+  el('ellipse',{cx:lx,cy:ly,rx:16,ry:6,fill:'#43c465',transform:`rotate(${a} ${lx} ${ly})`},stems);
+}
+function flower(x,y,r,n,col,cen){
+  stem(x,y);
+  const g=el('g',{transform:`translate(${x} ${y})`},heads);
+  const b=el('g',{class:'bl',style:`animation-delay:${(d+=.12).toFixed(2)}s`},g);
+  for(let i=0;i<n;i++){
+    el('ellipse',{cx:0,cy:-r*.65,rx:r*.2,ry:r*.4,fill:col,transform:`rotate(${i*360/n})`},b);
+  }
+  for(let i=0;i<n;i++){
+    el('ellipse',{cx:0,cy:-r*.5,rx:r*.16,ry:r*.32,fill:'#fff7b0',opacity:.55,transform:`rotate(${(i+.5)*360/n})`},b);
+  }
+  el('circle',{r:r*.36,fill:cen},b);
+  for(let i=0;i<14;i++){const a=i*2.4,q=r*.28*Math.sqrt(i/14);
+    el('circle',{cx:Math.cos(a)*q,cy:Math.sin(a)*q,r:1.6,fill:'#e8a33d'},b)}
+}
+F.forEach(f=>flower(...f));
+S.forEach(([x,y,r,c])=>{
+  stem(x,y);
+  const g=el('g',{transform:`translate(${x} ${y})`},heads);
+  const b=el('g',{class:'bl',style:`animation-delay:${(d+=.08).toFixed(2)}s`},g);
+  for(let i=0;i<5;i++)el('circle',{cx:0,cy:-r*.6,r:r*.5,fill:c,transform:`rotate(${i*72})`},b);
+  el('circle',{r:r*.4,fill:'#fff3a0'},b);
+});
+
+// papel de envolver
+const paper=el('g',{},bq);
+el('path',{d:'M105 335 Q200 372 295 335 L224 486 Q200 494 176 486 Z',fill:'url(#pp)'},paper);
+el('path',{d:'M105 335 Q200 372 295 335 L262 372 Q200 398 138 372 Z',fill:'#ffd6ea',opacity:.85},paper);
+el('path',{d:'M200 392 L200 488',stroke:'#fff',opacity:.25,'stroke-width':3},paper);
+// moño
+const bow=el('g',{transform:'translate(200 405)'},paper);
+el('path',{d:'M0 0 L-28 48 L-10 40 L-2 56Z',fill:'#ff9f1c'},bow);
+el('path',{d:'M0 0 L28 48 L10 40 L2 56Z',fill:'#ffb733'},bow);
+el('ellipse',{cx:-24,cy:-4,rx:24,ry:13,fill:'#ffb733',transform:'rotate(-20 -24 -4)'},bow);
+el('ellipse',{cx:24,cy:-4,rx:24,ry:13,fill:'#ff9f1c',transform:'rotate(20 24 -4)'},bow);
+el('circle',{r:9,fill:'#ffd23f'},bow);
+
+// destellos
+for(let i=0;i<14;i++){
+  const t=el('text',{x:Math.random()*400,y:Math.random()*330,'font-size':10+Math.random()*10,class:'tw',style:`animation-delay:${Math.random()*2}s`},svg);
+  t.textContent='✦';t.setAttribute('fill','#ffb300');
+}
+
+// pétalos que caen
+const cols=['#FFD400','#FFC300','#FFE24D','#ff9fc8','#ffb733'];
+let petalTimer=null;
+function petal(){
+  const p=document.createElement('i');p.className='p';
+  p.style.left=Math.random()*100+'vw';
+  p.style.background=cols[Math.floor(Math.random()*cols.length)];
+  p.style.setProperty('--d',(6+Math.random()*6)+'s');
+  p.style.setProperty('--s',(8+Math.random()*10)+'px');
+  document.body.appendChild(p);setTimeout(()=>p.remove(),12500);
+}
+function iniciarAnimacion(){
+  if(petalTimer) return;
+  petalTimer=setInterval(petal,650);
+}
+function detenerAnimacion(){
+  if(petalTimer){clearInterval(petalTimer);petalTimer=null;}
+}
+svg.addEventListener('click',()=>{for(let i=0;i<25;i++)setTimeout(petal,i*40)});
+
+// pop up de inicio
+const ov=document.getElementById('ov');
+document.body.classList.add('is-paused');
+const cerrar=()=>{
+  ov.hidden=true;
+  document.body.classList.remove('is-paused');
+  iniciarAnimacion();
+  for(let i=0;i<25;i++)setTimeout(petal,i*40);
+};
+document.getElementById('x').onclick=cerrar;
+document.getElementById('ok').onclick=cerrar;
+ov.addEventListener('click',e=>{if(e.target===ov)cerrar()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!ov.hidden)cerrar()});
+document.getElementById('ok').focus();
+</script>
+</body>
+</html>
